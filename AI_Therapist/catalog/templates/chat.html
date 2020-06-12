@@ -1,0 +1,71 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h4 style="color: #808000">Selct your mood:</h4>
+    
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Go">
+  </form>
+  {% if flag %}
+  {% if select_mood == 'd' %}
+  {% load static %}
+  <div>
+  <img src="{% static 'posts/depressed/dep1.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/depressed/dep2.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/depressed/dep3.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/depressed/dep4.jpg' %}" width="600px" height="300px">
+  </div>
+  {% endif %}
+  {% if select_mood == 'a' %}
+  {% load static %}
+  <div>
+  <img src="{% static 'posts/angry/anger1.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/angry/anger2.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/angry/anger3.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/angry/anger4.jpg' %}" width="600px" height="300px">
+  </div>
+  {% endif %}
+  {% if select_mood == 'w' %}
+  {% load static %}
+  <div>
+  <img src="{% static 'posts/workload/workload1.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/workload/workload2.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/workload/workload3.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/workload/workload4.jpg' %}" width="600px" height="300px">
+  </div>
+  {% endif %}
+  {% if select_mood == 's' %}
+  {% load static %}
+  <div>
+  <img src="{% static 'posts/sad/sad1.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/sad/sad2.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/sad/sad3.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/sad/sad4.jpg' %}" width="600px" height="300px">
+  </div>
+  {% endif %}
+  {% if select_mood == 'r' %}
+  {% load static %}
+  <div>
+  <img src="{% static 'posts/relationship_problems/rp1.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/relationship_problems/rp2.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/relationship_problems/rp3.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/relationship_problems/rp4.jpg' %}" width="600px" height="300px">
+  </div>
+  {% endif %}
+  {% if select_mood == 't' %}
+  {% load static %}
+  <div>
+  <img src="{% static 'posts/tensed_about_past/tap1.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/tensed_about_past/tap2.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/tensed_about_past/tap3.jpg' %}" width="600px" height="300px">
+  <img src="{% static 'posts/tensed_about_past/tap4.jpg' %}" width="600px" height="300px">
+  </div>
+  {% endif %}
+
+ 
+  {% endif %}
+{% endblock %}

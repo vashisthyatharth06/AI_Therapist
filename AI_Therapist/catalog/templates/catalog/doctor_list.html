@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1 style="padding-left: 300px;color: #FA8072">Available Doctors For Your Help</h1>
+  {% if doctor_list %}
+  <ul style="padding-top: 10px">
+    {% for doctor in doctor_list %}
+      <li style="padding-top: 10px">
+        <a href="{% url 'doctor-detail' doctor.pk%}">{{ doctor.name }}</a> ({{doctor.clinic_address}},{{doctor.mobile_number}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>Sorry,currently,there are no doctors in our contact.</p>
+  {% endif %}       
+{% endblock %}

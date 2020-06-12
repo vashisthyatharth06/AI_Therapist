@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Mood Timeline</h1>
+    
+
+    {% if calendar_list %}
+    <ul>
+
+      {% for obj in calendar_list %} 
+      <li>
+        {{obj.mood_verbose}} ({{obj.mood_date}},{{obj.mood_time}}) 
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>You have not interacted with chatbot till now!</p>
+    {% endif %}       
+{% endblock %}

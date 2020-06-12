@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1 style="color: #FA8072;">Doctor: {{ doctor.name }}</h1>
+<div style="margin-left:20px;margin-top:20px">
+    <h5>{{ doctor.name }}'s Address:</h3>
+    <p>{{doctor.clinic_address}}</p>
+    <h5>{{ doctor.name }}'s Mobile Number:</h3>
+    <p>{{doctor.mobile_number}}</p>
+
+    
+  </div>
+{% endblock %}
