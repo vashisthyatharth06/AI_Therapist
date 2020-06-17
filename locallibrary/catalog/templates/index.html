@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>My library</title>{% endblock %}
+{% block content %}
+  <h1 style="color: #FA8072;padding-left: 350px;text-decoration: underline;padding-bottom: 10px">
+  WELCOME TO LOCAL LIBRARY
+</h1>
+{% load static %}
+ <img src="{% static 'original.gif' %}" style="padding-left: 300px;padding-bottom: 15px;height: 50%;
+  width: 75%;">
+
+  
+  <div style="padding-bottom: 10px;padding-top: 20px;"><u style="font-size: 25px;font-family: cursive;padding-left: 100px;">LIBRARY STATUS:</u></div>
+  <ul style="font-size: 20px;font-family: sans-serif;padding-top: 0px;padding-left: 115px;">
+    <li><strong>Books:</strong> {{ num_books }}</li>
+    <li><strong>Copies:</strong> {{ num_instances }}</li>
+    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+    <li><strong>Authors:</strong> {{ num_authors }}</li>
+  </ul>
+  <p style="padding-left: 100px;">You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+
+{% endblock %}

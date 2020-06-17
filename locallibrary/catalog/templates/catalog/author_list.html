@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1><u>Author List</u></h1>
+  {% if author_list %}
+  <ul style="font-size: 20px;">
+    {% for author in author_list %}
+      <li>
+        <a href="{{ author.get_absolute_url }}">{{ author.last_name }}, {{author.first_name}}</a> ({{author.date_of_birth}})
+      </li>
+    {% endfor %}
+
+  </ul>
+
+  {% else %}
+    <p>There are no books in the library of any author.</p>
+  {% endif %}  
+  {% if perms.catalog.can_mark_returned %}
+  <p style="font-family: cursive;font-size: 20px;margin-left: 20px">Do you want to add an author:<a href="{% url 'author_create'  %}" style="font-size: 20px;">Add Author</a>  
+  {% endif %}   
+{% endblock %}

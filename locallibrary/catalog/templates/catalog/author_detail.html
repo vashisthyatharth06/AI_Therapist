@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1 style="font-family: cursive">Author: {{ author.last_name }}, {{ author.first_name }}</h1>
+  <ul style="font-size: 20px;">
+  <li style="margin-left: 20px">Date of birth: {{ author.date_of_birth }} </li>
+  <li style="margin-left: 20px">Date of death: {{ author.date_of_death }} </li>
+  </ul>
+  <hr>
+  <div style="margin-left:20px;margin-top:10px">
+    <h3>Books:-</h3>
+    {% if author.book_set.all %}
+     <ul>
+    {% for i in author.book_set.all %}
+      
+      <li style="font-size: 20px"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></li>
+      {% endfor %}
+  </ul>
+  {% else %}
+  <p style="font-family: cursive;font-size: 20px;">Currently,there are no books of this author in the library.</p>
+  {% endif %}
+    </div>  
+    {% if perms.catalog.can_mark_returned %}
+    <p style="font-family: cursive;font-size: 20px;margin-left: 20px">Do you want to delete the author:<a href="{% url 'author_delete' author.pk %}" style="font-size: 20px;">Delete Author</a>
+      <p style="font-family: cursive;font-size: 20px;margin-left: 20px">Do you want to update the author details:<a href="{% url 'author_update' author.pk %}" style="font-size: 20px;">Update Author</a>
+    {% endif %}
+
+
+
+   
+
+  
+{% endblock %}
